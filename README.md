@@ -1,1 +1,12 @@
-# Pizza_Delivery_Mobile
+# Мобильное приложение "Доставка пиццы"
+
+Данное приложение предназначено для повышения удобства и упрощения процесса заказа пиццы.  
+
+Пользователи могут быстро оформить заказ к себе домой или на работу с помощью телефона под рукой.
+Пользователи могут выбрать один из готовых комбо-наборов или собрать заказ самостоятельно.
+
+# Макет приложения
+![image](https://user-images.githubusercontent.com/96724536/195141505-57cc1f8d-cbb4-43a6-8eff-97a3f5957d4c.png)
+![image](https://user-images.githubusercontent.com/96724536/195142097-6469aa6e-1deb-43b8-b3d1-46c3697f3213.png)
+![image](https://user-images.githubusercontent.com/96724536/195142318-c04ba026-4586-4adb-9d45-0d7ad33193f4.png)
+![image](https://user-images.githubusercontent.com/96724536/195142425-597a26f7-3ab1-4385-bf00-7e27614678cb.png)
