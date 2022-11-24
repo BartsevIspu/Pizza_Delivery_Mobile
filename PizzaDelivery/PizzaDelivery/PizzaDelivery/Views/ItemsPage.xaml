@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PizzaDelivery.Views.ItemsPage"
+             Title="{Binding Title}"
+             xmlns:local="clr-namespace:PizzaDelivery.ViewModels"  
+             xmlns:model="clr-namespace:PizzaDelivery.Models"  
+             x:Name="BrowseItemsPage">
+
+    <!--
+      x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.
+      https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
+    -->
+    <RefreshView x:DataType="local:ItemsViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+        <CollectionView x:Name="ItemsListView"
+                ItemsSource="{Binding Items}"
+                SelectionMode="None"
+                BackgroundColor="{StaticResource Primary}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    
+                    <Grid HeightRequest="135" Padding="5, 18, 5, 25">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="38*" />
+                            <ColumnDefinition Width="62*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Image Source="pizza.png" Aspect="AspectFit"/>
+                        </Grid>
+                        <Grid Grid.Column="1" x:DataType="model:Item">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Label Text="{Binding Text}" 
+                                    LineBreakMode="NoWrap" 
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="20"
+                                    FontAttributes="Bold"
+                                    TextColor="White"/>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <Label Text="{Binding Description}" 
+                                    LineBreakMode="NoWrap"
+                                    Style="{DynamicResource ListItemDetailTextStyle}"
+                                    FontSize="14" 
+                                    TextColor="{StaticResource mid_gray}"/>
+                            </Grid>
+                            <Grid Grid.Row="2" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="35*"></ColumnDefinition>
+                                    <ColumnDefinition Width="60*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Button Text="100 P" FontSize="18" CornerRadius="20" 
+                                    BackgroundColor="#25959595"
+                                    TextColor="{StaticResource Light_gray}" 
+                                />
+                                </Grid>
+                                <Grid Grid.Column="1" Padding="10, 0, 10, 0">
+                                    <Button Text="В корзину" FontSize="16" CornerRadius="20"
+                                            BackgroundColor="{StaticResource Accent}"
+                                            TextColor="White"
+                                            />
+                                </Grid>
+                            </Grid>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                    NumberOfTapsRequired="1"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type local:ItemsViewModel}}, Path=ItemTapped}"		
+                                    CommandParameter="{Binding .}">
+                                </TapGestureRecognizer>
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </RefreshView>
+</ContentPage>

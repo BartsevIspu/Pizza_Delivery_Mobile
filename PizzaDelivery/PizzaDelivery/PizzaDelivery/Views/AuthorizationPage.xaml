@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PizzaDelivery.Views.AuthorizationPage"
+             NavigationPage.HasNavigationBar="True"
+             NavigationPage.HasBackButton="True"
+             xmlns:vm="clr-namespace:PizzaDelivery.ViewModels"
+             Title="{Binding Title}"
+             BackgroundColor="{StaticResource Primary}">
+    
+    <ContentPage.BindingContext>
+        <vm:AuthorizationViewModel />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#FF5F00</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+    <Grid Padding="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Padding="0, 10, 0, 10">
+            <Image Source="logo.png" HeightRequest="100" Aspect="AspectFit"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Label Text="Добрый день!" TextColor="White" FontSize="24" 
+                   FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Label Text="Введите свою почту и пароль, чтобы войти" TextColor="{StaticResource Light_gray}" FontSize="18" 
+                   HorizontalTextAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="3" Padding="0, 20, 0, 10">
+            <Frame BorderColor="{StaticResource mid_gray}" CornerRadius="45" HorizontalOptions="FillAndExpand"
+                   HeightRequest="40" BackgroundColor="Transparent">
+                <Entry Text="Логин" TextColor="{StaticResource Light_gray}" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand"
+                   PlaceholderColor="{StaticResource mid_gray}" Margin="15, 0, 0, 0"/>
+            </Frame>
+        </Grid>
+        <Grid Grid.Row="4" Padding="0, 10, 0, 0">
+            <Frame BorderColor="{StaticResource mid_gray}" CornerRadius="45" HorizontalOptions="FillAndExpand"
+                   HeightRequest="40" BackgroundColor="Transparent">
+                <Entry Text="Пароль" IsPassword="True" TextColor="{StaticResource Light_gray}" HorizontalOptions="FillAndExpand"
+                   PlaceholderColor="{StaticResource mid_gray}" Margin="15, 0, 0, 0"/>
+            </Frame>
+        </Grid>
+        <Grid Grid.Row="5">
+            <Label Text="Забыли пароль?" TextColor="{StaticResource Light_gray}" FontSize="18" 
+                   HorizontalTextAlignment="End"/>
+        </Grid>
+            <Grid Grid.Row="6" Padding="0, 20, 0, 10" WidthRequest="30" HeightRequest="80">
+            <Button Text="ВОЙТИ" TextColor="White" BackgroundColor="{StaticResource Accent}"
+                    CornerRadius="40" FontSize="20"/>
+        </Grid>
+        <Grid Grid.Row="7" Padding="0, 10, 0, 10">
+            <Label Text="Зарегистрироваться" TextColor="{StaticResource Accent}" FontSize="18" 
+                   HorizontalTextAlignment="End"/>
+        </Grid>
+    </Grid>
+    </ScrollView>
+
+</ContentPage>
