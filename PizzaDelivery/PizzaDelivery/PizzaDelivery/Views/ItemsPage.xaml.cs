@@ -1,6 +1,7 @@
 ﻿using PizzaDelivery.Models;
 using PizzaDelivery.ViewModels;
 using PizzaDelivery.Views;
+using PizzaDelivery.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,8 +24,11 @@ namespace PizzaDelivery.Views
             BindingContext = _viewModel = new ItemsViewModel();
         }
 
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
+            await App.Database.CreateTable();
+            //List<Item> pizzalist = new List<Item>();
+            //pizzalist.ItemsSource = App.Database.GetItemsAsync();
             base.OnAppearing();
             _viewModel.OnAppearing();
         }

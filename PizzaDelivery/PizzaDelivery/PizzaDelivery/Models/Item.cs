@@ -8,7 +8,7 @@ namespace PizzaDelivery.Models
 {
     public class Item
     {
-        public string Id { get; set; }
+        public int Id { get; set; }     //apparently it shouldn't have been string type
         public string Text { get; set; }
         public int Cost { get; set; }
         public string Description { get; set; }
